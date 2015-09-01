@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+  Copyright 2015 Shuhei Takahashi All rights reserved
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>WSGI Profiler</title>
+  </head>
+  <body>
+    <div style="float: right; border: 1px solid #444; margin: 8px; padding: 4px">
+      <a href="/__profile__/tree.png?path_prefix={{ query.get('path_prefix', '') }}"><img src="/__profile__/tree.png?path_prefix={{ query.get('path_prefix', '') }}" style="width: 300px"></a>
+    </div>
+    <form method="GET" action="/__profile__/">
+      <table>
+        <tbody>
+          <tr>
+            <td>Request path prefix:</td>
+            <td><input type="text" name="request_path_prefix" value="{{ query.get('request_path_prefix', '') }}" placeholder="/"></td>
+          </tr>
+          <tr>
+            <td>Sort order:</td>
+            <td>
+              <select name="sort">
+                <option value="cumtime" {{ 'selected=selected' if query.get('sort') == 'cumtime' else ''}}>cumulative time</option>
+                <option value="filename" {{ 'selected=selected' if query.get('sort') == 'filename' else '' }}>file name</option>
+                <option value="ncalls" {{ 'selected=selected' if query.get('sort') == 'ncalls' else '' }}>call count</option>
+                <option value="pcalls" {{ 'selected=selected' if query.get('sort') == 'pcalls' else '' }}>primitive call count</option>
+                <option value="line" {{ 'selected=selected' if query.get('sort') == 'line' else '' }}>line number</option>
+                <option value="name" {{ 'selected=selected' if query.get('sort') == 'name' else '' }}>function name</option>
+                <option value="nfl" {{ 'selected=selected' if query.get('sort') == 'nfl' else '' }}>name/file/line</option>
+                <option value="stdname" {{ 'selected=selected' if query.get('sort') == 'stdname' else '' }}>standard name</option>
+                <option value="tottime" {{ 'selected=selected' if query.get('sort') == 'tottime' else '' }}>internal time</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="submit" value="Refresh">
+    </form>
+    <pre>{{ stats_dump }}</pre>
+  </body>
+</html>
