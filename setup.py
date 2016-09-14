@@ -30,14 +30,12 @@ setuptools.setup(
     long_description=read_file('README.txt'),
     url='https://github.com/nya3jp/wsgiprof/',
     packages=['wsgiprof'],
-    package_data={
-        'wsgiprof': ['profiler.html'],
-    },
     install_requires=read_file('requirements.txt').splitlines(),
     classifiers = [
         'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.5',
         'License :: OSI Approved :: Apache Software License',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
