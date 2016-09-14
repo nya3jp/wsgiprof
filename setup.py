@@ -23,7 +23,7 @@ def read_file(name):
 
 setuptools.setup(
     name='wsgiprof',
-    version='1.0.0',
+    version='1.0.1',
     author='Shuhei Takahashi',
     author_email='takahashi.shuhei@gmail.com',
     description='Lightweight WSGI Profiler with Call Graph Visualization',

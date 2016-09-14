@@ -29,6 +29,10 @@ Please note that graphviz is required to render call graph.
 Changelog
 ---------
 
+1.0.1 (2016-06-15)
+
+- Added Python3 support.
+
 1.0.0 (2015-09-02)
 
 - First release.
