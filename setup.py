@@ -17,8 +17,8 @@ import setuptools
 
 
 def read_file(name):
-  with open(os.path.join(os.path.dirname(__file__), name)) as f:
-    return f.read().strip()
+    with open(os.path.join(os.path.dirname(__file__), name)) as f:
+        return f.read().strip()
 
 
 setuptools.setup(
